@@ -59,12 +59,15 @@ class State:
             newTiles = deepcopy(self.tiles)
             if key == "left" and checkDict[key] is True:
                 newTiles[rowIx][columnIx], newTiles[rowIx][columnIx-1] = newTiles[rowIx][columnIx-1], newTiles[rowIx][columnIx]
+                newStateTiles.append(newTiles)
             elif key == "up" and checkDict[key] is True:
                 newTiles[rowIx][columnIx], newTiles[rowIx-1][columnIx] = newTiles[rowIx-1][columnIx], newTiles[rowIx][columnIx]
+                newStateTiles.append(newTiles)
             elif key == "right" and checkDict[key] is True:
                 newTiles[rowIx][columnIx], newTiles[rowIx][columnIx+1] = newTiles[rowIx][columnIx+1], newTiles[rowIx][columnIx]
+                newStateTiles.append(newTiles)
             elif key == "down" and checkDict[key] is True:
                 newTiles[rowIx][columnIx], newTiles[rowIx+1][columnIx] = newTiles[rowIx+1][columnIx], newTiles[rowIx][columnIx]
-            newStateTiles.append(newTiles)
+                newStateTiles.append(newTiles)
 
         return newStateTiles

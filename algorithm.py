@@ -55,9 +55,14 @@ def A_Star(startState: State, goalStateTiles):
         if currentState.tiles == goalStateTiles:
             return solution(currentState)
 
+        willAddExp = True
         for state in explored:
-            if state.tiles != currentState.tiles:
-                explored.append(currentState)
+            if state.tiles == currentState.tiles:
+                willAddExp = False
+                break
+        if willAddExp:
+            explored.append(currentState)
+
 
         newStateTiles = currentState.expand()
         for tiles in newStateTiles:
